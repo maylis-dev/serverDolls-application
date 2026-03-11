@@ -1,0 +1,60 @@
+{
+  "products": {
+    "Barbie": [
+      {
+        "id": 1,
+        "name": "Barbie Dreamhouse Doll",
+        "sale_price": 49.99,
+        "stock": 2,
+        "image_url": "https://yourdomain.com/images/barbie-dreamhouse.jpg",
+        "seller": {
+          "id": 101,
+          "username": "sarah_shop",
+          "email": "sarah@example.com",
+          "profile_image": "https://yourdomain.com/profiles/sarah.jpg"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Barbie Fashionista Doll",
+        "sale_price": 19.99,
+        "stock": 5,
+        "image_url": "https://yourdomain.com/images/barbie-fashionista.jpg",
+        "seller": {
+          "id": 102,
+          "username": "toy_world",
+          "email": "toys@example.com",
+          "profile_image": "https://yourdomain.com/profiles/toyworld.jpg"
+        }
+      }
+    ],
+    "Bratz": [
+      {
+        "id": 1,
+        "name": "Bratz Yasmin Doll",
+        "sale_price": 24.99,
+        "stock": 3,
+        "image_url": "https://yourdomain.com/images/bratz-yasmin.jpg",
+        "seller": {
+          "id": 101,
+          "username": "sarah_shop",
+          "email": "sarah@example.com",
+          "profile_image": "https://yourdomain.com/profiles/sarah.jpg"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Bratz Cloe Doll",
+        "sale_price": 22.99,
+        "stock": 4,
+        "image_url": "https://yourdomain.com/images/bratz-cloe.jpg",
+        "seller": {
+          "id": 102,
+          "username": "toy_world",
+          "email": "toys@example.com",
+          "profile_image": "https://yourdomain.com/profiles/toyworld.jpg"
+        }
+      }
+    ]
+  }
+}
