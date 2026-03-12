@@ -9,13 +9,14 @@ function verifyToken(req, res, next) {
     const payload = jwt.verify(token, process.env.TOKEN_SECRET)// reject if it doesnt recive 
 
     // console.log(payload)
-    // we extract the payload from the token and pass it to the route inside the request.
+    // we extract the payload from the token and pass it to the route insidenpm  the request.
     req.payload = payload
 
     next() // continue with the route
   } catch (error) {
     // console.log(error)
-    //1. there is no token , its  invalid (it was tampered with) the token has expired
+    //1. there is no token its  invalid (it was tampered with)
+    //3. the token has expired
     res.status(401).json({errorMessage: "There is no token. Or token is invalid or expired."})
   }
 

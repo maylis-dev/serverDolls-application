@@ -59,7 +59,9 @@ router.get("/:productId", async (req, res) => {
     
   const response = await Product
   .findById(req.params.productId)
-  .populate("seller", "username email");
+  .populate("seller", "username email"
+    
+  );
     
     res.json(response)
   } catch (error) {
