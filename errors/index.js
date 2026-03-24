@@ -13,6 +13,16 @@ function handleErrors(app) {
     // always logs the error
     console.error("ERROR", req.method, req.path, err);
 
+    // ✅ Error handling for comments
+    if (req.path.includes("/comments")) {
+      if (!res.headersSent) {
+        return res.status(500).json({
+          message: "Failed to process comment request. Please try again.",
+          error: err.message,
+        });
+      }
+    }
+
     // Sends a generic server error response if headers haven't been sent
     if (!res.headersSent) {
       res

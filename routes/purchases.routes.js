@@ -7,7 +7,7 @@ const { verifyToken } = require("../middlewares/auth.middlewares")
 router.get("/" , (req, res) => {
     console.log("all good ")
     Purchase.find()
-    .then((purchases) => res.status(200).json(purchases))
+    .then((purchases) => res.status(200).json(purchases))//.then() permet d’exécuter du code après une opération asynchrone (par exemple : appeler une API).
     .catch((err) => console.error("Failed to show products", err));
 })
 

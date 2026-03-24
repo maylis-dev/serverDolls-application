@@ -10,9 +10,10 @@ const commentSchema = new mongoose.Schema({
   content: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
     content: { type: String, required: true },
-  product: {                       
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",
+  product: {    
+    // goto moongose schema loook for the type                   
+    type: mongoose.Schema.Types.ObjectId,//type of date that y ar elooking for so objectid 
+    ref: "Product",// refrence le model to which collection the id is coming from
     required: true
   },
 

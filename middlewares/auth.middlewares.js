@@ -12,7 +12,7 @@ function verifyToken(req, res, next) {
     // we extract the payload from the token and pass it to the route insidenpm  the request.
     req.payload = payload
 
-    next() // continue with the route
+    next() // continue with the route what ahappen after the excution
   } catch (error) {
     // console.log(error)
     //1. there is no token its  invalid (it was tampered with)
