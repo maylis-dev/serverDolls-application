@@ -1,5 +1,5 @@
-const express = require("express")
-const router = express.Router()
+const express = require("express")//import express to create a router for the products routes
+const router = express.Router()// create a router for the products routes
 
 const Product = require("../models/Product.model")
 const { verifyToken } = require("../middlewares/auth.middlewares")
@@ -74,8 +74,8 @@ router.get("/:productId", async (req, res) => {
 
 })
 
-// edit product 
-router.put("/:productId", async (req, res, next) => {
+// edit product //!privatise enleve si jamais utiliser
+router.put("/:productId", verifyToken, async (req, res, next) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
         // id from URL
@@ -96,8 +96,8 @@ router.put("/:productId", async (req, res, next) => {
   }
 });
 
-// delete a product
-router.delete("/:productId", async (req, res, next) => {
+// delete a product//!private
+router.delete("/:productId", verifyToken, async (req, res, next) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
 

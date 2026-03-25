@@ -7,8 +7,11 @@ const { verifyToken } = require("../middlewares/auth.middlewares")
 
 //post sign up route  api/auth/signup
 //already start with api and auth so dont add it
+//req request
+//res is repsond pass to the client 
 router.post("/signup", async (req, res, next) => {
-  console.log(req.body);
+  console.log(req.body);//afiche les parametre et les responde dans le terminal 
+//add the body when you when to add the information 
 
   //verificator that the data that the user enter is in the standart , if nothin gis miisng
   const { email, password, username } = req.body;
@@ -98,7 +101,7 @@ router.post("/login", async (req, res, next) => {
         role: foundUser.role
 
     }
-// never expose it on github 
+// !never expose it on github 
     const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
         algorithm:"HS256",
         expiresIn: "7d"
@@ -115,6 +118,7 @@ router.post("/login", async (req, res, next) => {
 
 
 // get /api /auth/verify
+// this is a protected route to verify that the token is valid and the user is authenticated
 router.get("/verify", verifyToken, (req, res) => {
   res.status(200).json({payload: req.payload})
 })

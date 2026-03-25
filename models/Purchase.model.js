@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
+//import mongoose to create a schema and model for the purchase
 const { Schema, model } = mongoose;
+//creer un schema modem pour les achats
 
 const purchaseSchema = new Schema({
    sellerId: {
@@ -14,6 +16,7 @@ const purchaseSchema = new Schema({
     required: true,
   },
 
+  //ref to the product that i want to buy
   dollId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
@@ -37,5 +40,6 @@ const purchaseSchema = new Schema({
 
 //property rveiw  condition to after 
 const Purchase = model("Purchase", purchaseSchema);
-
-module.exports = Purchase;
+//? should i delte this route 
+ 
+module.exports = Purchase; //export the model to use it in the routes and controllers

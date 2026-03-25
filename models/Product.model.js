@@ -10,13 +10,14 @@ const productSchema = new Schema({
   stock: { type: Number, required: true },
     description: { type: String, default: "" },
   imageUrl: String,
-  seller: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  seller: { type: Schema.Types.ObjectId, ref: "User", required: true },//ref to the user that sell the product use user because i want to know who is the seller of the product and to be able to populate the seller information when i get the product information
   category: { type: String  },
    
   }
 );
 
 const Product = model("Product", productSchema);
+//
 
 
 module.exports = Product;
