@@ -2,12 +2,8 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const { verifyToken } = require("../middlewares/auth.middlewares");
 
-//exctrat the token and then update 
-//who is the personne making the change
-//how do you it find by id and update 
 
 
-// GET /user/me → get current user info
 router.get("/me", verifyToken, async (req, res, next) => {
   try {
     const userId = req.payload._id;

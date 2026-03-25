@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-//import mongoose to create a schema and model for the purchase
+
 const { Schema, model } = mongoose;
-//creer un schema modem pour les achats
+
 
 const purchaseSchema = new Schema({
    sellerId: {

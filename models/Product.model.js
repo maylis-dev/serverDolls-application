@@ -5,12 +5,12 @@ const { Schema, model } = mongoose;
 
 const productSchema = new Schema({
   
-  name: { type: String, required: true },// name of the product // required true because i want to make sure that the user enter the name of the product
-  salePrice: { type: Number, required: true },//error if the saleprice is not a number or if it is missing
+  name: { type: String, required: true },
+  salePrice: { type: Number, required: true },
   stock: { type: Number, required: true },
     description: { type: String, default: "" },
   imageUrl: String,
-  seller: { type: Schema.Types.ObjectId, ref: "User", required: true },//ref to the user that sell the product use user because i want to know who is the seller of the product and to be able to populate the seller information when i get the product information
+  seller: { type: Schema.Types.ObjectId, ref: "User", required: true },
   category: { type: String  },
    
   }

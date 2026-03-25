@@ -4,7 +4,7 @@ const express = require('express');
 const { verifyToken, verifyAdmin } = require("../middlewares/auth.middlewares")
 const Purchase = require("../models/Purchase.model")
 
-// ℹ️ Organize and connect all your route files here.
+
 
 
 // auth route 

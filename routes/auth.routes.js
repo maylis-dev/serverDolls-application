@@ -101,7 +101,7 @@ router.post("/login", async (req, res, next) => {
         role: foundUser.role
 
     }
-// !never expose it on github 
+// never expose it on github 
     const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
         algorithm:"HS256",
         expiresIn: "7d"

@@ -8,28 +8,27 @@ const User = require("../models/User.model")
 router.get("/", (req, res) => {
   console.log("all good");
 
-  const { category } = req.query; // e.g., /api/products?category=Barbie fr search and filter focntions
-  const filter = category ? { category } : {}; // If category is provided, filter by it
-  //params take small data lile documents id peut etre utiliser comme un fiter 
+  const { category } = req.query; 
+  const filter = category ? { category } : {}; 
+
 
   Product.find(filter)
     .then((products) => res.status(200).json(products))//.then() permet d’exécuter du code après une opération asynchrone (par exemple : appeler une API).
     .catch((err) => {
       console.error("Failed to show products", err);
       res.status(500).json({ message: "Failed to show products", error: err.message });
-    });//If everything works → .then() runs but if  something fails → .catch() runs
+    });
 });
 
 // create new product
-//If token valid → req.payload is set → next() allows access if not not 
-// verifytoken protect the route
+
 router.post("/", verifyToken,(req, res, next) => {
 
 
 
   Product.create({//  crrer le produits et met en relation
      
-  name: req.body.name, //le serveur récupère le nom que la personne a tapé dans le formulaire et le stocke pour le produitle serveur récupère le nom que la personne a tapé dans le formulaire et le stocke pour le produit
+  name: req.body.name, 
   salePrice: req.body.salePrice,
   category: req.body.category,
   stock: req.body.stock,
@@ -55,14 +54,10 @@ router.get("/:productId", async (req, res) => {
 
   try {
 
-    //* we can do it like this, but if we have the id, it is preffered to use findById
-    // const response = await Artist.findOne({_id: req.params.artistId})
-    // const response = await Artist.find({_id: req.params.artistId})
     
   const response = await Product
   .findById(req.params.productId)
-  //populate give the exact property that i want with 
-  // seller is the categorie object and usersame et email the property i want shortcut 
+  
   .populate("seller", "username email"
     
   );
@@ -74,7 +69,7 @@ router.get("/:productId", async (req, res) => {
 
 })
 
-// edit product //!privatise enleve si jamais utiliser
+// edit product //!privatise enleve si jamais
 router.put("/:productId", verifyToken, async (req, res, next) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -97,7 +92,7 @@ router.put("/:productId", verifyToken, async (req, res, next) => {
 });
 
 // delete a product//!private
-router.delete("/:productId", verifyToken, async (req, res, next) => {
+router.delete("/:productId", async (req, res, next) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
 
