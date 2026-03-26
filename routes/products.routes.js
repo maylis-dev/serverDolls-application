@@ -69,7 +69,7 @@ router.get("/:productId", async (req, res) => {
 
 })
 
-// edit product //!privatise enleve si jamais
+// edit product 
 router.put("/:productId", verifyToken, async (req, res, next) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -92,7 +92,7 @@ router.put("/:productId", verifyToken, async (req, res, next) => {
 });
 
 // delete a product//!private
-router.delete("/:productId", async (req, res, next) => {
+router.delete("/:productId", verifyToken, async (req, res, next) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
 
